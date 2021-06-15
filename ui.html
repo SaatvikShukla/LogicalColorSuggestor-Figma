@@ -1,0 +1,19 @@
+<h2>Logical color pallette suggestor</h2>
+<p>Base Colour: <input id="baseColor" value="000000"></p>
+<button id="create">Suggest</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const textbox = document.getElementById('baseColor');
+  const count = String(textbox.value, 10);
+
+  // let alternateCols = [];
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
